@@ -28,7 +28,7 @@ class WorkSpaceListView(generics.ListAPIView):
 
     def get_free_workspaces_in_range(self, beginning, ending):
         bookings = Booking.objects.all()
-        workspace_ids = Booking.objects.all().values_list('workspace')
+        workspace_ids = WorkSpace.objects.all().values_list('id')
 
         if beginning and ending:
             if is_datetime_valid(beginning) and is_datetime_valid(ending):
